@@ -31,12 +31,19 @@ Features V1-V28 are PCA-transformed for confidentiality. `Time` is seconds from 
 
 Voting ensemble was tested but did not improve over XGBoost alone.
 
-### Train and save model
+## ⚠️ Limitations
 
-```python
-import joblib
-from xgboost import XGBClassifier
+Features V1-V28 are PCA-transformed components. Without access to the original feature engineering pipeline, this model cannot be applied to external transactions. The demo uses random samples from the dataset for demonstration purposes.
 
-model = XGBClassifier(n_estimators=300, max_depth=8, random_state=42)
-model.fit(X_train_resampled, y_train_resampled)
-joblib.dump(model, 'models/xgboost_fraud.pkl')
+## 📦 Dependencies
+
+- pandas
+- numpy
+- scikit-learn
+- xgboost
+- imbalanced-learn
+- joblib
+
+## 📝 License
+
+MIT
